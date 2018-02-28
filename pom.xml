@@ -129,20 +129,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>org.flywaydb</groupId>
-                        <artifactId>flyway-maven-plugin</artifactId>
-                        <version>5.0.7</version>
-                        <executions>
-                            <execution>
-                                <id>mgr</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>migrate</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                 </plugins>
             </build>
         </profile>

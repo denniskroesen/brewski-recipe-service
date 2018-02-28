@@ -20,7 +20,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <speedment.version>3.0.20</speedment.version>
         <spring-boot.bom.version>1</spring-boot.bom.version>
         <postgresql.version>42.1.4</postgresql.version>
         <maven.spring-boot.plugin.version>1.4.1.RELEASE</maven.spring-boot.plugin.version>
@@ -52,12 +51,6 @@
             <version>${flyway.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.speedment</groupId>
-            <artifactId>runtime</artifactId>
-            <version>${speedment.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
@@ -74,11 +67,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.speedment.plugins</groupId>
-            <artifactId>json-stream</artifactId>
-            <version>${speedment.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -105,19 +93,6 @@
                     <profiles>
                         <profile>local</profile>
                     </profiles>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.speedment</groupId>
-                <artifactId>speedment-maven-plugin</artifactId>
-                <version>${speedment.version}</version>
-
-                <configuration>
-                    <components>
-                        <!--<component>com.speedment.plugins.enums.EnumGeneratorBundle</component>-->
-                        <component>com.speedment.plugins.json.JsonBundle</component>
-                        <component>com.speedment.plugins.spring.SpringGeneratorBundle</component>
-                    </components>
                 </configuration>
             </plugin>
             <plugin>

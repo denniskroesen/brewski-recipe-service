@@ -31,3 +31,9 @@ spec:
                    key: database-password
             - name: JAVA_OPTIONS
               value: "-Dspring.profiles.active=openshift"
+            - name: KEYCLOAK_SERVER_URL
+              value: "http://keycloak-auth.192.168.99.100.nip.io/auth"
+            - name: KEYCLOAK_REALM
+              value: "TestApp"
+            - name: KEYCLOAK_RESOURCE
+              value: "recipe-service"

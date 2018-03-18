@@ -13,22 +13,22 @@ spec:
               valueFrom:
                  secretKeyRef:
                    name: postgresql
-                   key: database-user
+                   key: POSTGRESQL_USER
             - name: DB_PASSWORD
               valueFrom:
                  secretKeyRef:
                    name: postgresql
-                   key: database-password
+                   key: POSTGRESQL_PASSWORD
             - name: FLYWAY_USER
               valueFrom:
                  secretKeyRef:
                    name: postgresql
-                   key: database-user
+                   key: POSTGRESQL_USER
             - name: FLYWAY_PASSWORD
               valueFrom:
                  secretKeyRef:
                    name: postgresql
-                   key: database-password
+                   key: POSTGRESQL_PASSWORD
             - name: JAVA_OPTIONS
               value: "-Dspring.profiles.active=openshift"
             - name: KEYCLOAK_SERVER_URL

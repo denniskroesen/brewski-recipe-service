@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: ${project.artifactId}
+spec:
+  template:
+    spec:
+      containers:
+        - env:
+            - name: DB_USERNAME
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_PASSWORD
+            - name: DB_NAME
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_DATABASE
+            - name: DB_SERVICE_NAME
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_SERVICE_NAME
+            - name: FLYWAY_USER
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_USER
+            - name: FLYWAY_PASSWORD
+              valueFrom:
+                 secretKeyRef:
+                   name: postgresql
+                   key: POSTGRESQL_PASSWORD
+            - name: JAVA_OPTIONS
+              value: "-Dspring.profiles.active=openshift"
+            - name: KEYCLOAK_SERVER_URL
+              value: "http://keycloak-auth.192.168.99.100.nip.io/auth"
+            - name: KEYCLOAK_REALM
+              value: "TestApp"
+            - name: KEYCLOAK_RESOURCE
+              value: "recipe-service"

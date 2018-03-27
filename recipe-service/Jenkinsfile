@@ -21,16 +21,17 @@ node('maven') {
 //      )
 //   }
 
-//   stage ('Push to Nexus') {
-//     sh "${mvnCmd} deploy -DskipTests=true"
-//   }
+   stage ('Push to Nexus') {
+     sh "mvn deploy -DskipTests=true"
+   }
 
    stage('Deploy DEV') {
         script {
             openshift.withCluster() {
                 openshift.withProject(devProject) {
                     // create a new application from the templatePath
-                    sh "mvn clean fabric8:deploy -Popenshift -Dfabric8.namespace=${openshift.project()}"
+                    sh "mvn clean package"
+                    sh "cd recipe-service && mvn fabric8:deploy -Popenshift -Dfabric8.namespace=${openshift.project()}"
                 }
             }
         } // script
